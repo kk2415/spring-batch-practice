@@ -1,9 +1,7 @@
 package com.batch.practice.point;
 
 import com.batch.practice.point.wallet.PointWallet;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,8 +10,10 @@ import java.time.LocalDate;
 import static javax.persistence.FetchType.LAZY;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 @Getter
 @Entity
+@Setter
 public class Point extends IdEntity {
 
     @ManyToOne(fetch = LAZY)
@@ -29,10 +29,10 @@ public class Point extends IdEntity {
     @Column(nullable = false)
     LocalDate expireDate;
 
-    @Column(name = "is_used", nullable = false, columnDefinition = "TINYINT", length = 1)
+    @Column(name = "is_used", nullable = false, length = 1)
     boolean used;
 
-    @Column(name = "is_expired", nullable = false, columnDefinition = "TINYINT", length = 1)
+    @Column(name = "is_expired", nullable = false, length = 1)
     boolean expired;
 
     public Point(PointWallet pointWallet, Long amount, LocalDate earnedDate, LocalDate expireDate) {
