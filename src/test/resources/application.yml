@@ -1,0 +1,15 @@
+spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3366/point?serverTimezone=Asia/Seoul
+#    username: root
+#    password: password
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+  batch:
+    job:
+      names: ${job.name:NONE} # spring.batch.job.names를 job.name으로 치환
+    jdbc:
+      initialize-schema: always #batch에서 사용하는 스키마 생성여부를 always로 변견
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
