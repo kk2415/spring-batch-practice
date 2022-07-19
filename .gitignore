@@ -61,3 +61,7 @@ gradle-app.setting
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+
+### queryDSL ###
+**/src/main/generated/**
