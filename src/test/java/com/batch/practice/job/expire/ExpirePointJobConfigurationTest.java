@@ -17,7 +17,7 @@ import static org.assertj.core.api.BDDAssertions.then;
 
 class ExpirePointJobConfigurationTest extends BatchTestSupport {
 
-    @Autowired Job expiredPointJob;
+    @Autowired Job expirePointJob;
     @Autowired PointRepository pointRepository;
     @Autowired PointWalletRepository pointWalletRepository;
 
@@ -39,7 +39,7 @@ class ExpirePointJobConfigurationTest extends BatchTestSupport {
                 .addString("today", "2022-01-04")
                 .toJobParameters();
 
-        JobExecution jobExecution = launchJob(expiredPointJob, jobParameters);
+        JobExecution jobExecution = launchJob(expirePointJob, jobParameters);
 
         // Then
         then(jobExecution.getExitStatus()).isEqualTo(ExitStatus.COMPLETED);
