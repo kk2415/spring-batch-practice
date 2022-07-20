@@ -39,9 +39,9 @@ public abstract class BatchTestSupport {
     @AfterEach
     public void deleteAll() {
         pointRepository.deleteAll();
-        pointWalletRepository.deleteAll();
         pointReservationRepository.deleteAll();
         messageRepository.deleteAll();
+        pointWalletRepository.deleteAll();
     }
 
 }

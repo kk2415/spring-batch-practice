@@ -1,4 +1,4 @@
-package com.batch.practice.job.expire;
+package com.batch.practice.job.reservation;
 
 import com.batch.practice.job.validator.TodayJobParameterValidator;
 import org.springframework.batch.core.Job;
@@ -9,19 +9,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ExpirePointJobConfiguration {
+public class ExecutePointReservationJobConfiguration {
 
     @Bean
-    public Job expirePointJob(
+    public Job executePointReservationJob(
             JobBuilderFactory jobBuilderFactory,
             TodayJobParameterValidator validator,
-            Step expirePointStep
+            Step executePointReservationStep
     ) {
-        return jobBuilderFactory.get("expirePointJob")
-                .validator(validator) //validator 추가
-                //같은 Job을 같은 JobParameter로 돌려도 해당 ID가 계속 증가하여 job 이 중복실행된 것으로 인지하지 않음
+        return jobBuilderFactory
+                .get("executePointReservationJob") //job 이름
+                .validator(validator)
                 .incrementer(new RunIdIncrementer())
-                .start(expirePointStep)
+                .start(executePointReservationStep)
                 .build();
     }
 

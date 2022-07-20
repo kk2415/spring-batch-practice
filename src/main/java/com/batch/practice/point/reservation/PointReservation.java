@@ -5,6 +5,7 @@ import com.batch.practice.point.wallet.PointWallet;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,7 +34,8 @@ public class PointReservation extends IdEntity {
     @Column(nullable = false)
     int availableDays;
 
-    @Column(nullable = false, columnDefinition = "TINYINT", length = 1)
+    @Setter
+    @Column(nullable = false, length = 1)
     boolean executed;
 
     public PointReservation(PointWallet pointWallet, Long amount, LocalDate earnedDate, int availableDays) {
