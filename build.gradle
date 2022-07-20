@@ -28,6 +28,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.batch:spring-batch-test'
 
+	// https://mvnrepository.com/artifact/com.google.guava/guava
+	implementation 'com.google.guava:guava:11.0.2'
+
 	// queryDSL 설정
 	implementation 'com.querydsl:querydsl-jpa'
 	implementation "com.querydsl:querydsl-core"
